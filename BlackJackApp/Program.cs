@@ -29,7 +29,7 @@ namespace BlackJackApp
             var player = factory.CreatePlayer("Homer", 3000);
             var dealer = factory.CreateDealer("Bender", 100000);
             var shoe = factory.CreateShoe();
-            var gameLogic = factory.CreateGameLogic(dealer, player, (GameShoe)shoe);
+            var gameLogic = factory.CreateGameLogic(dealer, player, shoe);
 
             return gameLogic.StartGame();
         }
