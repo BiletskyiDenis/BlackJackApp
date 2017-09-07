@@ -40,9 +40,11 @@ namespace BlackJackApp
             return shoe;
         }
 
-        public virtual GameLogic CreateGameLogic()
+        public virtual GameLogic CreateGameLogic(GameDealer dealer, GamePlayer player, Shoe shoe)
         {
-            return new GameLogic();
+            var gameLogic = new GameLogic();
+            gameLogic.Init(dealer, player, (GameShoe)shoe);
+            return gameLogic;
         }
     }
 }
