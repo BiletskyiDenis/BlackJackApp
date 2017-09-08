@@ -10,10 +10,10 @@ namespace BlackJackApp
     {
         private PlayerActonsStore playerActons = new PlayerActonsStore();
         private Messages message = null;
-        GameDealer dealer = null;
-        GamePlayer player = null;
-        Shoe shoe = null;
-        GameStatus gameStatus = GameStatus.Continue;
+        private GameDealer dealer = null;
+        private GamePlayer player = null;
+        private Shoe shoe = null;
+        private GameStatus gameStatus = GameStatus.Continue;
 
         public GameStatus StartGame()
         {
