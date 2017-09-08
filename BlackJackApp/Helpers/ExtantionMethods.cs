@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BlackJackApp
 {
-    public static class ExtantionMethods
+    public static class ExtensionMethods
     {
         public static void GetCardFrom<T> (this Player<T> player, Shoe shoe) where T:BaseHand
         {

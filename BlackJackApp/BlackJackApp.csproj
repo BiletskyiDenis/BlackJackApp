@@ -47,6 +47,9 @@
     <Compile Include="Actions\PlayerAction\HitPlayerAction.cs" />
     <Compile Include="Actions\PlayerAction\PlayerAction.cs" />
     <Compile Include="Actions\PlayerAction\StayPlayerAction.cs" />
+    <Compile Include="Actions\PlayerActonsStore.cs" />
+    <Compile Include="BlackJack\GameDeck.cs" />
+    <Compile Include="BlackJack\GameShoe.cs" />
     <Compile Include="Helpers\ExtantionMethods.cs" />
     <Compile Include="BlackJack\GameLogic.cs" />
     <Compile Include="Helpers\GameStatus.cs" />
