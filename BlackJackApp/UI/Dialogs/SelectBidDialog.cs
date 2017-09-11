@@ -16,7 +16,7 @@ namespace BlackJackApp.UI.Dialogs
                new DialogItem{Text="$500", Value=500, Enabled= player.CheckMoney(500) },
             };
 
-            var bet = UI.ShowDialog("Select a bid:", dialogItems, new Size(15, 7), dialogColor: ConsoleColor.Yellow);
+            var bet = MainUI.ShowDialog("Select a bid:", dialogItems, new Size(15, 7), dialogColor: ConsoleColor.Yellow);
             player.SetBet(bet);
             return 0;
         }

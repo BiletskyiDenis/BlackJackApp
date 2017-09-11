@@ -14,7 +14,7 @@ namespace BlackJackApp.UI.Dialogs
                new DialogItem{Text="YES", Value=1 }
             };
 
-            var answ = UI.ShowDialog("Insurance?", dialogItems, new Size(12, 5), dialogColor: ConsoleColor.DarkMagenta);
+            var answ = MainUI.ShowDialog("Insurance?", dialogItems, new Size(12, 5), dialogColor: ConsoleColor.DarkMagenta);
             if (answ == 1)
             {
                 player.SetInsurance();

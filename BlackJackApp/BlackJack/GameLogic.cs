@@ -3,6 +3,7 @@ using BlackJackApp.Helpers;
 using BlackJackApp.UI.Dialogs;
 using BlackJackApp.Actions;
 using BlackJackApp.UI.Messages;
+using BlackJackApp.UI;
 
 namespace BlackJackApp
 {
@@ -17,12 +18,7 @@ namespace BlackJackApp
 
         public GameStatus StartGame()
         {
-            UI.UI.DrawMain();
-            UI.UI.DrawAvatars();
-            UI.UI.DrawDealerStatus(dealer.GetPerson());
-            UI.UI.DrawPlayerStatus(player.GetPerson());
-            UI.UI.DrawDeck(shoe.GetCount(), shoe.GetStartCount());
-            UI.UI.ShowMessage("Welcome to Blackjack Game", new Size(27, 3));
+            OnStartGame();
 
             while (GetGameStatus() == GameStatus.Continue)
             {
@@ -34,6 +30,16 @@ namespace BlackJackApp
                 EndSMatch();
             }
             return gameStatus;
+        }
+
+        private void OnStartGame()
+        {
+            MainUI.DrawMain();
+            MainUI.DrawAvatars();
+            MainUI.DrawDealerStatus(dealer.GetPerson());
+            MainUI.DrawPlayerStatus(player.GetPerson());
+            MainUI.DrawDeck(shoe.GetCount(), shoe.GetStartCount());
+            MainUI.ShowMessage("Welcome to Blackjack Game", new Size(27, 3));
         }
 
         private void StartMatch()
@@ -76,7 +82,7 @@ namespace BlackJackApp
         {
             dealer.Drop();
             player.Drop();
-            UI.UI.ClearTable();
+            MainUI.ClearTable();
         }
 
         private void PlayerActions()
@@ -112,7 +118,7 @@ namespace BlackJackApp
 
             if (!player.CheckMoney(100))
             {
-                gameStatus = UI.UI.GameOver();
+                gameStatus = MainUI.GameOver();
                 return gameStatus;
             }
 
@@ -131,15 +137,15 @@ namespace BlackJackApp
             playerActons.AddAction((p, s) => new HitPlayerAction(p, s).DoAction());
             playerActons.AddAction((p, s) => new DoubleDownPlayerAction(p, s).DoAction());
 
-            player.OnSetInsurance += UI.UI.DrawCorn;
-            player.OnSetBet += UI.UI.DrawCorn;
-            player.OnDoubleBet += UI.UI.DrawCorn;
-            player.OnChangeCards += UI.UI.DrawCards;
-            player.OnChangeMoney += (obj, e) => { UI.UI.DrawPlayerStatus(((GamePlayer)obj).GetPerson()); };
-            player.OnSetSplit += (obj, e) => { UI.UI.ClearRegion(new Point(15, 15), new Size(50, 7)); };
+            player.OnSetInsurance += MainUI.DrawCorn;
+            player.OnSetBet += MainUI.DrawCorn;
+            player.OnDoubleBet += MainUI.DrawCorn;
+            player.OnChangeCards += MainUI.DrawCards;
+            player.OnChangeMoney += (obj, e) => { MainUI.DrawPlayerStatus(((GamePlayer)obj).GetPerson()); };
+            player.OnSetSplit += (obj, e) => { MainUI.ClearRegion(new Point(15, 15), new Size(50, 7)); };
 
-            dealer.OnChangeCards += UI.UI.DrawCards;
-            shoe.OnChangeDeckSize += (obj, e) => { UI.UI.DrawDeck(shoe.GetCount(), shoe.GetStartCount()); };
+            dealer.OnChangeCards += UI.MainUI.DrawCards;
+            shoe.OnChangeDeckSize += (obj, e) => { UI.MainUI.DrawDeck(shoe.GetCount(), shoe.GetStartCount()); };
 
 
             player.OnWin += (obj, e) => { message.Win(); }; 

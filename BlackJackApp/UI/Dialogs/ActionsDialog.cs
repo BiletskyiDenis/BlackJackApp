@@ -17,7 +17,7 @@ namespace BlackJackApp.UI.Dialogs
                new DialogItem{Text="Double Down", Value=2, Enabled=player.CheckMoney() && !player.GetHand().DoubleBet }
             };
 
-            return UI.ShowDialog("Actions:" + side, dialogItems, new Size(17, 6), dialogColor: ConsoleColor.DarkGreen);
+            return MainUI.ShowDialog("Actions:" + side, dialogItems, new Size(17, 6), dialogColor: ConsoleColor.DarkGreen);
         }
         public ActionsDialog(GamePlayer player)
         {

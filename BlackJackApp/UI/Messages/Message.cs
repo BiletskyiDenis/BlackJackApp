@@ -3,7 +3,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BlackJackApp.UI.Messages
+namespace BlackJackApp.UI
 {
     public abstract class Message
     {

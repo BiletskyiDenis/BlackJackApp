@@ -14,7 +14,7 @@ namespace BlackJackApp.UI.Dialogs
                new DialogItem{Text="NO Thanks", Value=0},
                new DialogItem{Text="YES - Split", Value=1}
             };
-            if (UI.ShowDialog("Split Cards?", dialogItems, new Size(14, 5), dialogColor: ConsoleColor.Yellow) != 1)
+            if (MainUI.ShowDialog("Split Cards?", dialogItems, new Size(14, 5), dialogColor: ConsoleColor.Yellow) != 1)
             { return 0; }
 
             player.Split(shoe);

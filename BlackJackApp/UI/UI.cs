@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BlackJackApp.UI
 {
-    public static class UI
+    public static class MainUI
     {
         public static void DrawMain()
         {
