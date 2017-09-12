@@ -10,7 +10,7 @@ namespace BlackJackApp
     public class GameLogic
     {
         private PlayerActonsStore playerActons = new PlayerActonsStore();
-        private Messages message = null;
+        private Message message = null;
         private GameDealer dealer = null;
         private GamePlayer player = null;
         private Shoe shoe = null;
